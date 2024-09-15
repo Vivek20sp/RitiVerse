@@ -28,9 +28,11 @@ const PostDetails = () => {
   );
 
   const handleDeletePost = () => {
-    deletePost({ postId: id, imageId: post?.imageId });
+    deletePost({ postId: id, imageId: post?.imageID });
     navigate(-1);
   };
+
+  console.log(post);
 
   return (
     <div className="post_details-container">
@@ -54,7 +56,7 @@ const PostDetails = () => {
       ) : (
         <div className="post_details-card">
           <img
-            src={post?.imageUrl}
+            src={post?.imageURL}
             alt="creator"
             className="post_details-img"
           />
@@ -66,7 +68,7 @@ const PostDetails = () => {
                 className="flex items-center gap-3">
                 <img
                   src={
-                    post?.creator.imageUrl ||
+                    post?.creator.imageURL ||
                     "/assets/icons/profile-placeholder.svg"
                   }
                   alt="creator"
@@ -80,7 +82,7 @@ const PostDetails = () => {
                     <p className="subtle-semibold lg:small-regular ">
                       {multiFormatDateString(post?.$createdAt)}
                     </p>
-                    •
+                    -
                     <p className="subtle-semibold lg:small-regular">
                       {post?.location}
                     </p>
